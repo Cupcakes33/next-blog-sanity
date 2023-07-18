@@ -1,6 +1,6 @@
 import useDarkMode from "@/hooks/useDarkMode";
-import MoonIcon from "./icons/MoonIcon";
-import SunIcon from "./icons/SunIcon";
+import MoonIcon from "../icons/MoonIcon";
+import SunIcon from "../icons/SunIcon";
 import useIsMounted from "@/hooks/useIsMounted";
 
 export default function DarkModeBtn() {
