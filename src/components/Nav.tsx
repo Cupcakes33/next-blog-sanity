@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import DarkModeBtn from "./DarkModeBtn";
 
 export default function Nav() {
   return (
@@ -12,6 +13,7 @@ export default function Nav() {
               Learned<span className="text-teal-500">.log</span>
             </h1>
           </Link>
+          <DarkModeBtn />
         </div>
       </div>
     </div>
