@@ -1,12 +1,13 @@
 import { twMerge } from "tailwind-merge";
 
-export default function MoonIcon({ className }: React.ComponentProps<"svg">) {
+export default function MoonIcon({ className, ...props }: React.ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
       className={twMerge("w-6 h-6 text-yellow-400", className)}
+      {...props}
     >
       <path
         fillRule="evenodd"

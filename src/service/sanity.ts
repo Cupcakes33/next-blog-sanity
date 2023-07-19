@@ -1,16 +1,32 @@
 import { client } from "@/lib/sanity";
 import { Post } from "@/types/post";
-import dayjs from "dayjs";
-import readingTime from "reading-time";
+import CalculateReadingTime from "@/util/CalculateReadingTime";
+import formattingDayJs from "@/util/formattingDayJs";
 
-export async function getData(): Promise<Post[]> {
-  const query = `*[_type == "post"]`;
+type Sort = "asc" | "desc";
+
+export async function getData(sort: Sort = "asc"): Promise<Post[]> {
+  const query =
+    sort === "asc"
+      ? `*[_type == "post"] | order(_createdAt desc)`
+      : `*[_type == "post"] | order(_createdAt asc)`;
+
   const result = await client.fetch(query);
-  return result.map((post: any) => {
+  return result.map((post: Post) => {
     return {
       ...post,
-      _createdAt: dayjs(post._createdAt).format("YY.MM.DD"),
-      readingTime: Math.ceil(readingTime(post.content).minutes),
+      _createdAt: formattingDayJs(post._createdAt),
+      readingTime: CalculateReadingTime(post.content),
     };
   });
+}
+
+export async function getPost(slug: string): Promise<Post> {
+  const query = `*[_type == "post" && slug.current == $slug][0]`;
+  const data =  await client.fetch(query, { slug });
+  return {
+    ...data,
+    _createdAt: formattingDayJs(data._createdAt),
+    readingTime: CalculateReadingTime(data.content),
+  }
 }

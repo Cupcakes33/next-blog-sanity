@@ -1,9 +1,12 @@
-export type Post = {
+export type PostMinimal = {
   title: string;
   overview: string;
-  content: any;
   _id: string;
   _createdAt: string;
+};
+
+export type Post = PostMinimal & {
+  content: any;
   readingTime: number;
   slug: {
     current: string;

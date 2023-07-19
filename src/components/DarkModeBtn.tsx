@@ -8,7 +8,7 @@ export default function DarkModeBtn() {
   const { isMounted } = useIsMounted();
 
   return (
-    <button onClick={toggleTheme}>
+    <button onClick={toggleTheme} className="w-6 h-6 text-orange-400">
       {isMounted ? isThemeDark ? <MoonIcon /> : <SunIcon /> : null}
     </button>
   );
