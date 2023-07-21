@@ -1,5 +1,6 @@
 import { getPost } from "@/service/sanity";
 import React from "react";
+import MarkdownViewer from "@/components/MarkdownViewer";
 
 type Props = {
   params: {
@@ -9,6 +10,8 @@ type Props = {
 
 export default async function page({ params }: Props) {
   const data = await getPost(params.slug);
+  
+
   return (
     <div className="xl:divide-gray-200 xl:divide-y xl:dark:divide-gray-700">
       <header className="pt-6 xl:pb-6">
@@ -29,7 +32,7 @@ export default async function page({ params }: Props) {
       </header>
       <div className="divide-y divide-gray-200 pb-7 dark:divide-gray-700 xl:divide-y-0">
         <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-          <div className="pt-10 pb-8 prose prose-lg max-w-none dark:prose-invert"></div>
+          <MarkdownViewer content={data.content} />
         </div>
       </div>
     </div>

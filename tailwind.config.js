@@ -7,5 +7,8 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {},
+  variants: {
+    typography: ["dark"],
+  },
   plugins: [require("@tailwindcss/typography")],
 };

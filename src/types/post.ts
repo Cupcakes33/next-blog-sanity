@@ -6,7 +6,7 @@ export type PostMinimal = {
 };
 
 export type Post = PostMinimal & {
-  content: any;
+  content: string;
   readingTime: number;
   slug: {
     current: string;
