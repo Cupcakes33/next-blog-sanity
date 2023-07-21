@@ -13,7 +13,7 @@ export default async function MainPage() {
         </h1>
         <hr className="w-full transition-all border-1 border-neutral-300 dark:border-neutral-600" />
       </div>
-      <PostsWrapper posts={data}/>
-          </div>
+      <PostsWrapper posts={data} />
+    </div>
   );
 }
