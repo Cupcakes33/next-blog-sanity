@@ -6,7 +6,7 @@ import ThemeContext from "@/context/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const revalidate = 1;
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
