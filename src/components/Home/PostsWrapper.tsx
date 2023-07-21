@@ -1,5 +1,4 @@
 import CalenderIcon from "@/icons/CalendarIcon";
-import ClockIcon from "@/icons/ClockIcon";
 import { Post } from "@/types/post";
 import Link from "next/link";
 import React from "react";

@@ -23,10 +23,10 @@ export async function getData(sort: Sort = "asc"): Promise<Post[]> {
 
 export async function getPost(slug: string): Promise<Post> {
   const query = `*[_type == "post" && slug.current == $slug][0]`;
-  const data =  await client.fetch(query, { slug });
+  const data = await client.fetch(query, { slug });
   return {
     ...data,
     _createdAt: formattingDayJs(data._createdAt),
     readingTime: CalculateReadingTime(data.content),
-  }
+  };
 }

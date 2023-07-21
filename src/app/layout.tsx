@@ -1,5 +1,5 @@
 import Nav from "@/components/Nav";
-import "./globals.css";
+import "../style/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ThemeContext from "@/context/ThemeContext";
@@ -19,7 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       {/*   Warning : Prop `className` did not match. Server: "__className_20951f dark" Client: "__className_20951f"  방지*/}
-      <body className="h-full text-black transition-all duration-200 bg-white dark:bg-gray-900 dark:selection::bg-gray-900 dark:text-white selection:bg-gray-50">
+      <body
+        className="h-full text-black transition-all duration-200 bg-white dark:bg-gray-900 dark:selection::bg-gray-900 dark:text-white selection:bg-gray-50"
+        suppressHydrationWarning
+      >
+        {/* Warning: Extra attributes from the server: data-new-gr-c-s-check-loaded,data-gr-ext-installed,cz-shortcut-listen 방지 */}
         <ThemeContext>
           <Nav />
           <main className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
