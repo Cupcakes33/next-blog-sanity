@@ -1,6 +1,7 @@
 import PostsWrapper from "@/components/Home/PostsWrapper";
 import { getData } from "@/service/sanity";
 
+export const revalidate = 60 * 60;
 
 export default async function MainPage() {
   const data = await getData("asc");
@@ -13,7 +14,7 @@ export default async function MainPage() {
         </h1>
         <hr className="w-full transition-all border-1 border-neutral-300 dark:border-neutral-600" />
       </div>
-      <PostsWrapper posts={data}/>
-          </div>
+      <PostsWrapper posts={data} />
+    </div>
   );
 }

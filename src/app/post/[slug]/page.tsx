@@ -1,4 +1,4 @@
-import { getPost } from "@/service/sanity";
+import { getData, getPost } from "@/service/sanity";
 import React from "react";
 import MarkdownViewer from "@/components/MarkdownViewer";
 
@@ -8,9 +8,8 @@ type Props = {
   };
 };
 
-export default async function page({ params }: Props) {
-  const data = await getPost(params.slug);
-  
+export default async function page({ params: { slug } }: Props) {
+  const data = await getPost(slug);
 
   return (
     <div className="xl:divide-gray-200 xl:divide-y xl:dark:divide-gray-700">
@@ -37,4 +36,9 @@ export default async function page({ params }: Props) {
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const data = await getData("asc");
+  return data.map((data) => ({ slug: data.slug.current }));
 }
