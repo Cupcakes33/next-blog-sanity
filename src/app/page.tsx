@@ -1,7 +1,7 @@
 import PostsWrapper from "@/components/Home/PostsWrapper";
 import { getData } from "@/service/sanity";
 
-export const revalidate = 3;
+export const revalidate = 60 * 60;
 
 export default async function MainPage() {
   const data = await getData("asc");
