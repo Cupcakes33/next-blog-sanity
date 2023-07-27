@@ -14,6 +14,11 @@ export default {
       title: 'Overview',
     },
     {
+      name: 'cover',
+      type: 'image',
+      title: 'Cover',
+    },
+    {
       name: 'category',
       type: 'string',
       title: 'Category',

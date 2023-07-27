@@ -1,11 +1,11 @@
 import { client } from "@/lib/sanity";
-import { Post } from "@/types/post";
+import { Post, PostMinimal } from "@/types/post";
 import CalculateReadingTime from "@/util/CalculateReadingTime";
 import formattingDayJs from "@/util/formattingDayJs";
 
 type Sort = "asc" | "desc";
 
-export async function getData(sort: Sort = "asc"): Promise<Post[]> {
+export async function getData(sort: Sort = "asc"): Promise<PostMinimal[]> {
   const query =
     sort === "asc"
       ? `*[_type == "post"] | order(_createdAt desc)`
@@ -16,7 +16,6 @@ export async function getData(sort: Sort = "asc"): Promise<Post[]> {
     return {
       ...post,
       _createdAt: formattingDayJs(post._createdAt),
-      readingTime: CalculateReadingTime(post.content),
     };
   });
 }

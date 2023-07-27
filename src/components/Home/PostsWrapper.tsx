@@ -1,10 +1,10 @@
 import CalenderIcon from "@/icons/CalendarIcon";
-import { Post } from "@/types/post";
+import { PostMinimal } from "@/types/post";
 import Link from "next/link";
 import React from "react";
 
 type Props = {
-  posts: Post[];
+  posts: PostMinimal[];
 };
 export default function PostsWrapper({ posts }: Props) {
   return (
